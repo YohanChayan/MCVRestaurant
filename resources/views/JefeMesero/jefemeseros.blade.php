@@ -5,8 +5,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            Lista de empleados
-            <a href="{{{ route ('gerenteR.jefemeseros.create')}}}" class=" text-center btn btn-warning text-white  btn-sm float-right">Nuevo empleado</a>
+            Lista de jefe de meseros
+            <a href="{{{ route ('gerenteR.jefemeseros.create')}}}" class=" text-center btn btn-warning text-white  btn-sm float-right">Nuevo jefe de mesero</a>
           </div>
           <div class="card-body">
             <!--Se Muestran los mensajes de exito al eliminar o editar-->
