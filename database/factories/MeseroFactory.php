@@ -27,7 +27,6 @@ class MeseroFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'telefono' => $this->faker->phoneNumber(),
             'sueldo' => '2000',
-            
         ];
     }
 }
