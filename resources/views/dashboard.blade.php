@@ -53,7 +53,6 @@
                                 <h4>Porcentajes General: 81%</h4>
                             </div>
                         </div>
-
                         <div class="col-lg-4 mt-4 mt-lg-0">
                             <div class="box">
                                 <span>Sucursal: Guadalajara</span>
@@ -62,9 +61,7 @@
                                 <p>Centro Universitario de Ciencias Exactas e Ingenierías, dirección</p>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 </section><!-- End Why Us Section -->
 @endcan
