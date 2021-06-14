@@ -6,7 +6,15 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        @can('manager-Gerente')
+                            <img src="{{ url('img/Dashboard-G.png') }}" />
+                        @endcan
+                        @can('manager-JefeMesero')
+                            <img src="{{ url('img/Dashboard-J.png') }}" />
+                        @endcan
+                        @can('manager-Mesero')
+                            <img src="{{ url('img/Dashboard-M.png') }}" />
+                        @endcan
                     </a>
                 </div>
 
@@ -23,17 +31,33 @@
                     </x-jet-nav-link>
                 </div>
                 @endcan
+                @can('manager-Mesero')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('meseroR.platillos.index') }}" :active="request()->routeIs('meseroR.platillos.index')">
+                        {{ __('Asignar mesa a cliente') }}
+                    </x-jet-nav-link>
+                </div>
+                @endcan
+
+                @can('manager-Mesero')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('meseroR.platillos.index') }}" :active="request()->routeIs('meseroR.platillos.index')">
+                        {{ __('Agregar pedido a mesa') }}
+                    </x-jet-nav-link>
+                </div>
+                @endcan
+
                 @can('manager-JefeMesero')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('jefemeseroR.meseros.index') }}" :active="request()->routeIs('jefemeseroR.meseros.index')">
-                        {{ __('Empleados') }}
+                        {{ __('Meseros') }}
                     </x-jet-nav-link>
                 </div>
                 @endcan
                 @can('manager-Gerente')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('gerenteR.jefemeseros.index') }}" :active="request()->routeIs('gerenteR.jefemeseros.index')">
-                        {{ __('Empleados') }}
+                        {{ __('Jefe de meseros') }}
                     </x-jet-nav-link>
                 </div>
                 @endcan
