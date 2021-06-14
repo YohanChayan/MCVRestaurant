@@ -70,9 +70,7 @@
                         </li>
                     @else
                         <li class="book-a-table text-center"><a href="{{ route('login') }}">Log in</a></li>
-                        @if (Route::has('register'))
-                            <li class="book-a-table text-center"><a href="{{ route('register') }}">Register</a></li>
-                        @endif
+                        
                     @endauth
             @endif
                   
