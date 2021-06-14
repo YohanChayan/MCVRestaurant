@@ -37,7 +37,7 @@ class PlatilloController extends Controller
     public function store(Request $request)
     {
         Platillo::create($request->all());
-        return redirect()->route('meseroR.platillos.index')->with('info', 'Platillo creado exitosamente');
+        return redirect()->route('jefemeseroR.platillos.index')->with('info', 'Platillo creado exitosamente');
     }
 
     /**
@@ -72,7 +72,7 @@ class PlatilloController extends Controller
     public function update(Request $request, Platillo $platillo)
     {
         Platillo::where('id_platillos', $platillo->id_platillos)->update($request->except('_token','_method'));
-        return redirect()->route('meseroR.platillos.index')->with('info', 'Platillo editado correctamente');
+        return redirect()->route('jefemeseroR.platillos.index')->with('info', 'Platillo editado correctamente');
     }
 
     /**
@@ -84,6 +84,6 @@ class PlatilloController extends Controller
     public function destroy(Platillo $platillo)
     {
         $platillo->delete();
-        return redirect()->route('meseroR.platillos.index');
+        return redirect()->route('jefemeseroR.platillos.index');
     }
 }

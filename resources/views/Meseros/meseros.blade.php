@@ -24,14 +24,20 @@
                 <thead>
                   <th>ID</th>
                   <th>Nombre</th>
+                  <th>Apellido</th>
                   <th>Correo</th>
+                  <th>Telefono</th>
+                  <th>Sueldo</th>
                 </thead>
                 <tbody>
                 @foreach ($meseros as $mesero)
                   <tr>
                     <td>{{ $mesero->id }}</td>
-                    <td>{{ $mesero->name }}</td>
+                    <td>{{ $mesero->nombre }}</td>
+                    <td>{{ $mesero->apellido }}</td>
                     <td>{{ $mesero->email }}</td>
+                    <td>{{ $mesero->telefono }}</td>
+                    <td>{{ $mesero->sueldo }}</td>
                    
                     <td>
                       <!--Iconos de Editar y eliminar-->

@@ -12,9 +12,9 @@
                         @can('manager-JefeMesero')
                             <img src="{{ url('img/Dashboard-J.png') }}" />
                         @endcan
-                        @can('manager-Mesero')
+                        <!-- @can('manager-Mesero')
                             <img src="{{ url('img/Dashboard-M.png') }}" />
-                        @endcan
+                        @endcan -->
                     </a>
                 </div>
 
@@ -24,25 +24,10 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
-                @can('manager-Mesero')
+                @can('manager-JefeMesero')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('meseroR.platillos.index') }}" :active="request()->routeIs('meseroR.platillos.index')">
+                    <x-jet-nav-link href="{{ route('jefemeseroR.platillos.index') }}" :active="request()->routeIs('jefemeseroR.platillos.index')">
                         {{ __('Platillos') }}
-                    </x-jet-nav-link>
-                </div>
-                @endcan
-                @can('manager-Mesero')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('meseroR.platillos.index') }}" :active="request()->routeIs('meseroR.platillos.index')">
-                        {{ __('Asignar mesa a cliente') }}
-                    </x-jet-nav-link>
-                </div>
-                @endcan
-
-                @can('manager-Mesero')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('meseroR.platillos.index') }}" :active="request()->routeIs('meseroR.platillos.index')">
-                        {{ __('Agregar pedido a mesa') }}
                     </x-jet-nav-link>
                 </div>
                 @endcan

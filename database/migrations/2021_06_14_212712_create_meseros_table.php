@@ -15,7 +15,12 @@ class CreateMeserosTable extends Migration
     {
         Schema::create('meseros', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre');
+            $table->string('apellido')->nullable();
+            $table->string('email')->unique();
+            $table->string('telefono', 20);
+            $table->double('sueldo', 8, 2);
+            // $table->timestamps();
         });
     }
 

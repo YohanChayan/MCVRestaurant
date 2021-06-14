@@ -5,11 +5,11 @@
       <div class="col-md-12">
         <div class="card">
         @if(isset($platillo))
-          <form action="{{ route('meseroR.platillos.update',$platillo) }}" method="POST">
+          <form action="{{ route('jefemeseroR.platillos.update',$platillo) }}" method="POST">
           @method('PATCH')
           <div class="card-header">Editar Platillo</div>
         @else
-          <form action="{{ route('meseroR.platillos.store') }}" method="POST">
+          <form action="{{ route('jefemeseroR.platillos.store') }}" method="POST">
           <div class="card-header">Crear Platillo</div>
         @endif
 
@@ -44,7 +44,7 @@
                     </label>
                   </div>      
               <br><button type="submit" class="btn btn-primary">Guardar</button>
-              <a href="{{{route('meseroR.platillos.index')}}}" class="btn btn-danger">Cancelar</a>
+              <a href="{{{route('jefemeseroR.platillos.index')}}}" class="btn btn-danger">Cancelar</a>
             </form>
           </div>
         </div>

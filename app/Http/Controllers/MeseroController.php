@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empleado;
+use App\Models\Mesero;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Gate;
@@ -16,12 +16,11 @@ class MeseroController extends Controller
      */
     public function index()
     {
-
         // if(Gate::denies('manager-Mesero')){
         //     abort(403);
         // }
 
-        $meseros = Empleado::where('role','=',0)->get();
+        $meseros = Mesero::get();
         return view('Meseros.meseros', compact('meseros'));
     }
 
@@ -45,17 +44,17 @@ class MeseroController extends Controller
     {
         $pass = Hash::make($request['password']);
         $request['password'] = $pass;
-        Empleado::create($request->all());
+        Mesero::create($request->all());
         return redirect()->route('jefemeseroR.meseros.index')->with('info', 'mesero creado exitosamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Empleado  $mesero
+     * @param  \App\Models\Mesero  $mesero
      * @return \Illuminate\Http\Response
      */
-    public function show(Empleado $mesero)
+    public function show(Mesero $mesero)
     {
         
     }
@@ -63,10 +62,10 @@ class MeseroController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Empleado  $mesero
+     * @param  \App\Models\Mesero  $mesero
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleado $mesero)
+    public function edit(Mesero $mesero)
     {
         return view('Meseros.create',compact('mesero'));
     }
@@ -75,12 +74,12 @@ class MeseroController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Empleado  $mesero
+     * @param  \App\Models\Mesero  $mesero
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $mesero)
+    public function update(Request $request, Mesero $mesero)
     {
-        Empleado::where('id', $mesero->id)->update($request->only('name','email'));
+        Mesero::where('id', $mesero->id)->update($request->except('_token','_method'));
         return redirect()->route('jefemeseroR.meseros.index')->with('info', 'Mesero editado correctamente');
     }
 
@@ -90,7 +89,7 @@ class MeseroController extends Controller
      * @param  \App\Models\Mesero  $mesero
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $mesero)
+    public function destroy(Mesero $mesero)
     {
         $mesero->delete();
         return redirect()->route('jefemeseroR.meseros.index');

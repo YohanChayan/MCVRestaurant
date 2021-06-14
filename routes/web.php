@@ -31,10 +31,10 @@ Route::group(['middleware' => 'auth'], function() {
     });
    Route::group(['middleware' => 'role:jefemeseroR', 'prefix' => 'jefemeseroR', 'as' => 'jefemeseroR.'], function() {
         Route::resource('meseros', MeseroController::class);
-   });
-   Route::group(['middleware' => 'role:meseroR', 'prefix' => 'meseroR', 'as' => 'meseroR.'], function() {
         Route::resource('platillos', PlatilloController::class);
-    });
+   });
+//    Route::group(['middleware' => 'role:meseroR', 'prefix' => 'meseroR', 'as' => 'meseroR.'], function() {
+//     });
 });
 
 Route::get('/', function () {

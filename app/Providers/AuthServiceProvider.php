@@ -34,8 +34,8 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role == '1';
         });
 
-        Gate::define('manager-Mesero', function(User $user){
-            return $user->role == '0';
-        });
+        // Gate::define('manager-Mesero', function(User $user){
+        //     return $user->role == '0';
+        // });
     }
 }

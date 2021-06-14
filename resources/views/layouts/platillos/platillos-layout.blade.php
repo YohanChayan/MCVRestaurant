@@ -48,9 +48,6 @@
         
           <li class="active"><a href="{{ route('dashboard') }}">Regresar</a></li>
 
-          @can('jefe-mesero-user', 'gerente')
-          <li><a href="{{route('platillos.index')}}">Empleados</a></li>
-          @endcan
           <!-- Dropdown Menu -->
         
 
