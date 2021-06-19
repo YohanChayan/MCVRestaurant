@@ -26,7 +26,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Gerente',
+            'name' => 'MCVGerente',
             'email' => 'gerente@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('MasterGerente'), // password

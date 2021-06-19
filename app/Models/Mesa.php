@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Mesa extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
     protected $table = 'mesas';
     protected $fillable = [
         'area',
