@@ -71,7 +71,7 @@ class PlatilloController extends Controller
      */
     public function update(Request $request, Platillo $platillo)
     {
-        Platillo::where('id_platillos', $platillo->id_platillos)->update($request->except('_token','_method'));
+        Platillo::where('id', $platillo->id)->update($request->except('_token','_method'));
         return redirect()->route('jefemeseroR.platillos.index')->with('info', 'Platillo editado correctamente');
     }
 

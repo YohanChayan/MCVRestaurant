@@ -6,6 +6,12 @@ use \App\Http\Controllers\GerenteController;
 use \App\Http\Controllers\JefeMeseroController;
 use \App\Http\Controllers\MeseroController;
 use \App\Http\Controllers\PlatilloController;
+
+use App\Http\Controllers\TicketController;
+use App\Models\Orden;
+use App\Models\Ticket;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,8 +39,6 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('meseros', MeseroController::class);
         Route::resource('platillos', PlatilloController::class);
    });
-//    Route::group(['middleware' => 'role:meseroR', 'prefix' => 'meseroR', 'as' => 'meseroR.'], function() {
-//     });
 });
 
 Route::get('/', function () {
@@ -42,7 +46,22 @@ Route::get('/', function () {
     return view('home', compact('platillos'));
  })->name('home');
 
- Route::get('/ordenar', function () {   //para clientes
+ Route::get('/ordenar/{id}', function ($ticketId) {
     $platillos = Platillo::all();
-    return view('ordenar', compact('platillos'));
+    $ordenes = Orden::where('ticket_id', $ticketId)->get();
+    return view('ordenar', compact('platillos','ticketId','ordenes'));
  })->name('ordenar');
+
+
+//Ticket Routes
+Route::get('ticket', 'App\Http\Controllers\TicketController@create')->name('ticket.create');
+Route::post('ticket', 'App\Http\Controllers\TicketController@store')->name('ticket.store');
+Route::delete('ticket/destroy/{id}', 'App\Http\Controllers\TicketController@destroy')->name('ticket.destroy');
+Route::get('ticket/finish/{id}', 'App\Http\Controllers\TicketController@finish')->name('ticket.finish');
+
+
+//Orden Routes
+
+Route::post('orden', 'App\Http\Controllers\OrdenController@store')->name('ordena.store');
+Route::delete('orden/destroy/{id}', 'App\Http\Controllers\OrdenController@destroy')->name('orden.destroy');
+

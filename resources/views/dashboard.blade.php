@@ -25,6 +25,8 @@
   <link href="{{{ asset('css/style.css')}}}" rel="stylesheet">
    
 @can('manager-Gerente')
+
+
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 
@@ -110,10 +112,10 @@
       
 @endcan
 
-@can('manager-Mesero')
+<!-- @can('manager-Mesero')
 
                 <h1>Ambito Mesero</h1>
-@endcan
+@endcan -->
 
         </div>
     </div>
