@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class MesaSeeder extends Seeder
+class PlatillosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class MesaSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Mesa::factory(1)->create();
+        \App\Models\Platillo::factory(15)->create();
     }
 }
