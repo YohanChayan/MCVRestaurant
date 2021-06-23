@@ -45,14 +45,14 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html"><span>MVC Restaurant</span></a></h1>
+        <h1 class="text-light"><a href="#"><span>MVC Restaurant</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="#">Home</a></li>
           <li><a href="#why-us">Acerca de</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#gallery">Gallería</a></li>
@@ -65,7 +65,7 @@
                          @csrf
                           <form action="{{route('logout')}}" method="POST">
                             @csrf
-                            <button type="submit" class="btn"><a>Volver al sistema</a></button>
+                            <button type="submit" class="btn"><a>Salir</a></button>
                           </form>
                         </li>
                     @else
@@ -477,13 +477,13 @@
     <div class="container">
       <h3>MVC Restaurant</h3>
       <p>Software Desarrollado por MVC Team.</p>
-      <div class="social-links">
+      <!-- <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
         <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
+      </div> -->
       <div class="copyright">
         &copy; Copyright <strong><span>MVC Team Development</span></strong>. All Rights Reserved
       </div>
