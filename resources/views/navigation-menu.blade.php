@@ -31,7 +31,6 @@
                     </x-jet-nav-link>
                 </div>
                 @endcan
-
                 @can('manager-JefeMesero')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('jefemeseroR.meseros.index') }}" :active="request()->routeIs('jefemeseroR.meseros.index')">
@@ -39,10 +38,20 @@
                     </x-jet-nav-link>
                 </div>
                 @endcan
+
+
                 @can('manager-Gerente')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('gerenteR.jefemeseros.index') }}" :active="request()->routeIs('gerenteR.jefemeseros.index')">
                         {{ __('Jefe de meseros') }}
+                    </x-jet-nav-link>
+                </div>
+                @endcan
+
+                @can('manager-Gerente')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('gerenteR.informes.index') }}" :active="request()->routeIs('gerenteR.informes.index')">
+                        {{ __('Informes') }}
                     </x-jet-nav-link>
                 </div>
                 @endcan

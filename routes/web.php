@@ -6,6 +6,7 @@ use \App\Http\Controllers\GerenteController;
 use \App\Http\Controllers\JefeMeseroController;
 use \App\Http\Controllers\MeseroController;
 use \App\Http\Controllers\PlatilloController;
+use \App\Http\Controllers\DynamicPDFController;
 
 use App\Http\Controllers\TicketController;
 use App\Models\Orden;
@@ -34,6 +35,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'role:gerenteR', 'prefix' => 'gerenteR', 'as' => 'gerenteR.'], function() {
         Route::resource('jefemeseros', JefeMeseroController::class);
+        
+        Route::resource('informes', DynamicPDFController::class);
+
+        // Route::get('informes', 'App\Http\Controllers\DynamicPDFController@index')->name('informes.index');
+
+        // Route::get('informes/PDF', 'App\Http\Controllers\DynamicPDFController@pdf')->name('informes.PDF');
+
     });
    Route::group(['middleware' => 'role:jefemeseroR', 'prefix' => 'jefemeseroR', 'as' => 'jefemeseroR.'], function() {
         Route::resource('meseros', MeseroController::class);
@@ -59,9 +67,9 @@ Route::post('ticket', 'App\Http\Controllers\TicketController@store')->name('tick
 Route::delete('ticket/destroy/{id}', 'App\Http\Controllers\TicketController@destroy')->name('ticket.destroy');
 Route::get('ticket/finish/{id}', 'App\Http\Controllers\TicketController@finish')->name('ticket.finish');
 
-
 //Orden Routes
 
 Route::post('orden', 'App\Http\Controllers\OrdenController@store')->name('ordena.store');
 Route::delete('orden/destroy/{id}', 'App\Http\Controllers\OrdenController@destroy')->name('orden.destroy');
 
+Route::resource('informes', DynamicPDFController::class);
