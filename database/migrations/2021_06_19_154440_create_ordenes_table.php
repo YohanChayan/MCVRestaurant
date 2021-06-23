@@ -20,7 +20,7 @@ class CreateOrdenesTable extends Migration
             $table->unsignedBigInteger('platillo_id');
 
             $table->foreign('ticket_id')->references('id')->on('tickets');
-            $table->foreign('platillo_id')->references('id')->on('platillos');
+            // $table->foreign('platillo_id')->references('id')->on('platillos');
         });
     }
 
