@@ -69,10 +69,10 @@ class DynamicPDFController extends Controller
                     '.$D->email.'
                 </td>
                 <td style="border: 1px solid; padding:12px;">
-                '.$D->telefono.'
+                    '.$D->telefono.'
                 </td>
                 <td style="border: 1px solid; padding:12px;">
-                '.$D->sueldo.'
+                    '.$D->sueldo.'
                 </td>
             </tr>
             ';

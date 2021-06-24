@@ -94,7 +94,7 @@ class OrdenController extends Controller
      * @param  \App\Models\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orden $orden)
+    public function destroy($id)
     {
         $orden = Orden::findOrFail($id);
         $ticketId = $orden->ticket_id; //saco primero el id del ticket para mandarlo a la vista

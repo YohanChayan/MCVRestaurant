@@ -20,7 +20,7 @@
               <label for="ingredientes">Ingredientes</label>
               <input type="text" class="form-control" name="ingredientes" value="{{ $platillo->ingredientes ?? '' }}">
               <label for="precio">Precio</label>
-              <input step="0.01" type="number" class="form-control" name="precio" value="{{ $platillo->precio ?? '' }}"><br>
+              <input step="0.01" min="1" type="number" class="form-control" name="precio" value="{{ $platillo->precio ?? '' }}"><br>
               <label for="disponibilidad">Disponibilidad</label>
               <!--Radio  Disponibilidad-->
               <?php

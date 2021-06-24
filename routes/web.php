@@ -39,7 +39,6 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('informes', DynamicPDFController::class);
 
         // Route::get('informes', 'App\Http\Controllers\DynamicPDFController@index')->name('informes.index');
-
         // Route::get('informes/PDF', 'App\Http\Controllers\DynamicPDFController@pdf')->name('informes.PDF');
 
     });
