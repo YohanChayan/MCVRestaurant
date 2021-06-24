@@ -16,11 +16,11 @@
           <div class="card-body">
                @csrf
               <label for="nombre">Nombre del Platillo</label>
-              <input type="text" class="form-control" name="nombre" value="{{ $platillo->nombre ?? '' }}">
+              <input type="text" class="form-control" name="nombre" required value="{{ $platillo->nombre ?? '' }}">
               <label for="ingredientes">Ingredientes</label>
-              <input type="text" class="form-control" name="ingredientes" value="{{ $platillo->ingredientes ?? '' }}">
+              <input type="text" class="form-control" name="ingredientes" required value="{{ $platillo->ingredientes ?? '' }}">
               <label for="precio">Precio</label>
-              <input step="0.01" min="1" type="number" class="form-control" name="precio" value="{{ $platillo->precio ?? '' }}"><br>
+              <input step="0.01" min="1" type="number" required class="form-control" name="precio" value="{{ $platillo->precio ?? '' }}"><br>
               <label for="disponibilidad">Disponibilidad</label>
               <!--Radio  Disponibilidad-->
               <?php
@@ -32,7 +32,7 @@
                   $Boolean = false;
               ?>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" value="1"  name="disponibilidad" id="flexRadioDefault1" <?php echo ($Boolean) ? 'checked':''?> >
+                    <input class="form-check-input" type="radio" value="1"  name="disponibilidad" id="flexRadioDefault1"  <?php echo ($Boolean) ? 'checked':''?> >
                     <label class="form-check-label" for="flexRadioDefault1">
                       Disponible
                     </label>

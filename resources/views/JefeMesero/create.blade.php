@@ -16,15 +16,15 @@
           <div class="card-body">
                @csrf
               <label for="name">Nombre de empleado</label>
-              <input type="text" class="form-control" name="name" value="{{ $jefemesero->name ?? '' }}">
-              <label for="email">Correo</label>
-              <input type="email" class="form-control" name="email" value="{{ $jefemesero->email ?? '' }}">
+              <input type="text" class="form-control" name="name" required value="{{ $jefemesero->name ?? '' }}">
+              <label for="email" >Correo</label>
+              <input type="email" class="form-control" name="email" required value="{{ $jefemesero->email ?? '' }}">
               <?php
               $IsNew = true;
               if(isset($jefemesero) ) $IsNew = false;
               ?>
-              <label for="password" <?php echo ($IsNew) ? '':'hidden'?> >contraseña predeterminada</label>
-              <input type="password" class="form-control" name="password" value="{{ $nombre->password ?? '' }}" <?php echo ($IsNew) ? '':'hidden'?> ><br>
+              <label for="password" <?php echo ($IsNew) ? 'required':'hidden '?> >contraseña predeterminada</label>
+              <input type="password" class="form-control" name="password"  value="{{ $nombre->password ?? '' }}" <?php echo ($IsNew) ? 'required':'hidden'?> ><br>
               <!-- <label for="role">Rol</label> -->
               <input type="text" class="form-control" name="role" value="1" hidden><br>
               <!--Radio  Disponibilidad-->
