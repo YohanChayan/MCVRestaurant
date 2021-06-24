@@ -30,7 +30,7 @@
                                                 <button type="submit" class="btn btn-warning justify-center text-white">Pedir</button>
                                             </div>   
                                                 <div class="col-sm-1 menu-item mt-4">
-                                                    <input type="number" min="0" max="8" class="form-control" name="cantidad" value="0">
+                                                    <input type="number" min="1" max="8" class="form-control" name="cantidad" value="0">
                                                     <input type="number" class="invisible form-control" name="id_platillos" value="{{ $platillo->id }}">
                                                     <input type="number" class="invisible form-control" name="id_ticket" value="{{ $ticketId }}">
 
