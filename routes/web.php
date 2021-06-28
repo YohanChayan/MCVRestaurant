@@ -7,6 +7,7 @@ use \App\Http\Controllers\JefeMeseroController;
 use \App\Http\Controllers\MeseroController;
 use \App\Http\Controllers\PlatilloController;
 use \App\Http\Controllers\DynamicPDFController;
+use \App\Http\Controllers\FileController;
 
 use App\Http\Controllers\TicketController;
 use App\Models\Orden;
@@ -38,13 +39,14 @@ Route::group(['middleware' => 'auth'], function() {
         
         Route::resource('informes', DynamicPDFController::class);
 
-        // Route::get('informes', 'App\Http\Controllers\DynamicPDFController@index')->name('informes.index');
-        // Route::get('informes/PDF', 'App\Http\Controllers\DynamicPDFController@pdf')->name('informes.PDF');
-
     });
    Route::group(['middleware' => 'role:jefemeseroR', 'prefix' => 'jefemeseroR', 'as' => 'jefemeseroR.'], function() {
         Route::resource('meseros', MeseroController::class);
         Route::resource('platillos', PlatilloController::class);
+
+        Route::get('files/download/{file}', [FileController::class, 'download'])->name('files.download');
+        Route::resource('files', FileController::class)->except(['edit', 'update', 'show']);
+
    });
 });
 
@@ -72,3 +74,4 @@ Route::post('orden', 'App\Http\Controllers\OrdenController@store')->name('ordena
 Route::delete('orden/destroy/{id}', 'App\Http\Controllers\OrdenController@destroy')->name('orden.destroy');
 
 Route::resource('informes', DynamicPDFController::class);
+

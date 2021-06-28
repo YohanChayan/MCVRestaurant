@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    @extends('layouts.informes.informes-layout')
+    <!-- @extends('layouts.informes.informes-layout') -->
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

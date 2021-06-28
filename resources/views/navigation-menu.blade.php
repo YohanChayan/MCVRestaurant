@@ -38,6 +38,14 @@
                     </x-jet-nav-link>
                 </div>
                 @endcan
+                @can('manager-JefeMesero')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('jefemeseroR.files.index') }}" :active="request()->routeIs('jefemeseroR.files.index')">
+                        {{ __('Archivos') }}
+                    </x-jet-nav-link>
+                </div>
+                @endcan
+                
 
 
                 @can('manager-Gerente')
