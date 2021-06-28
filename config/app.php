@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -233,5 +234,9 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
+
+    //Socialite
+
+    'Socialite' => Laravel\Socialite\Facades\Socialite::class
 
 ];
