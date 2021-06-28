@@ -83,8 +83,9 @@ Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'han
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Mail;
 //Send Email
-Route::get('/send-email', [MailController::class, 'sendEmail']);
+Route::get('/send-email/{email}', [MailController::class, 'sendEmail'])->name('send.email');
 
+/*
 use App\Mail\TestMail;
 Route::get('/email', function(){
     $correo = new TestMail;
@@ -92,4 +93,4 @@ Route::get('/email', function(){
 
     return "Mensaje Enviado";
 });
-
+*/

@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function sendEmail(){
-        $details=[
-            'title' => 'Hola MCV Restaurant le invita a formar parte del sistema',
-            'body' => 'Este es un mensaje para notificar que ha sidoinscrito en el sistema'
+    public function sendEmail($email){
+
+        $this->validationRules = [
+            "email" => ['required','email:rfc'],
         ];
 
-        Mail::to("adrian.estevez7475@alumnos.udg.mx")->send(new TestMail($details));
+        Mail::to($email)->send(new TestMail());
         return "Correo Electrónico Enviado";
     }
 }
