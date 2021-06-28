@@ -2,7 +2,7 @@
 
 ![](public/img/Dashboard-M.png)
 
-MCV Restauran es una aplicación que permite a los clientes de un restaurant ordenar sin necesidad de registrarse en un sistema y que hace facil la gestión de un restaurante. Simplemente entras, ordenas tu pedido y lo recoges.
+MCV Restaurant es una aplicación que permite a los clientes de un restaurant ordenar sin necesidad de registrarse en un sistema y que hace facil la gestión de un restaurante. Simplemente entras, ordenas tu pedido y lo recoges.
 
 ---
 ## Instrucciones de instalación 
@@ -35,5 +35,6 @@ Algunos comandos que pueden ser de utilidad para cargar las vistas por completo:
 
 ## Autores
 - Adrián Estévez
-- Yohan Chayan 
+- Yohan Chayan   
+
 *Derechos reservados.*
