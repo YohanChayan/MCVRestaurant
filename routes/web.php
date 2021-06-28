@@ -36,7 +36,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'role:gerenteR', 'prefix' => 'gerenteR', 'as' => 'gerenteR.'], function() {
         Route::resource('jefemeseros', JefeMeseroController::class);
-        
         Route::resource('informes', DynamicPDFController::class);
 
     });
@@ -74,4 +73,23 @@ Route::post('orden', 'App\Http\Controllers\OrdenController@store')->name('ordena
 Route::delete('orden/destroy/{id}', 'App\Http\Controllers\OrdenController@destroy')->name('orden.destroy');
 
 Route::resource('informes', DynamicPDFController::class);
+
+//Login with Google Routes
+use App\Http\Controllers\LoginWithGoogleController;
+
+Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
+Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
+
+use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\Mail;
+//Send Email
+Route::get('/send-email', [MailController::class, 'sendEmail']);
+
+use App\Mail\TestMail;
+Route::get('/email', function(){
+    $correo = new TestMail;
+    Mail::to('adrian.estevez7475@alumnos.udg.mx')->send($correo);
+
+    return "Mensaje Enviado";
+});
 
