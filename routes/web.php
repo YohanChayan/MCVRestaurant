@@ -77,8 +77,8 @@ Route::resource('informes', DynamicPDFController::class);
 //Login with Google Routes
 use App\Http\Controllers\LoginWithGoogleController;
 
-Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
-Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
+Route::get('/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
+Route::get('/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
 
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Mail;
