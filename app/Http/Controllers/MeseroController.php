@@ -44,7 +44,7 @@ class MeseroController extends Controller
     {
         
         //Validando el correo
-        $request->validate($this->validationRules,[
+        $request->validate([
             "email" => ['required','email:rfc'],
         ]);
 

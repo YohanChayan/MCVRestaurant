@@ -84,13 +84,3 @@ use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Mail;
 //Send Email
 Route::get('/send-email/{email}', [MailController::class, 'sendEmail'])->name('send.email');
-
-/*
-use App\Mail\TestMail;
-Route::get('/email', function(){
-    $correo = new TestMail;
-    Mail::to('adrian.estevez7475@alumnos.udg.mx')->send($correo);
-
-    return "Mensaje Enviado";
-});
-*/

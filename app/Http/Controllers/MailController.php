@@ -15,6 +15,7 @@ class MailController extends Controller
         ];
 
         Mail::to($email)->send(new TestMail());
-        return "Correo Electrónico Enviado";
+        return redirect()->route('jefemeseroR.meseros.index')->with('info', 'Mensaje de Bienvenida Enviado');
+
     }
 }
