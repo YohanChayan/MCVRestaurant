@@ -7,6 +7,5 @@
 </head>
 <body>
     <h1>Muchas gracias por pertenecer al equipo de MVC </h1>
-    
 </body>
 </html>

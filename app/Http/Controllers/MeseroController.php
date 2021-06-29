@@ -42,6 +42,12 @@ class MeseroController extends Controller
      */
     public function store(Request $request)
     {
+        
+        //Validando el correo
+        $request->validate([
+            "email" => ['required','email:rfc'],
+        ]);
+
         $pass = Hash::make($request['password']);
         $request['password'] = $pass;
         Mesero::create($request->all());

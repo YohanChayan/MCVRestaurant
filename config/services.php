@@ -31,9 +31,9 @@ return [
     ],
     
     'google' => [
-        'client_id' => '751348474115-kmrnjremp4hanqb6hem4v6g5jdtqr622.apps.googleusercontent.com',
-        'client_secret' => 'xVhYqbhpKf_KZmntpezbjiBE',
-        'redirect' => 'http://localhost:8000/authorized/google/callback',
+        'client_id' => '751348474115-6vpco75obfqfnhbn7a7f8s4ssjcaj9jd.apps.googleusercontent.com',
+        'client_secret' => 'sT9VAb5UucOecRI2FV3WO4bK',
+        'redirect' => 'http://mcvrestaurant.org/google/callback',
     ],
 
 ];

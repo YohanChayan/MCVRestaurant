@@ -7,6 +7,7 @@ use \App\Http\Controllers\JefeMeseroController;
 use \App\Http\Controllers\MeseroController;
 use \App\Http\Controllers\PlatilloController;
 use \App\Http\Controllers\DynamicPDFController;
+use \App\Http\Controllers\FileController;
 
 use App\Http\Controllers\TicketController;
 use App\Models\Orden;
@@ -37,13 +38,14 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('jefemeseros', JefeMeseroController::class);
         Route::resource('informes', DynamicPDFController::class);
 
-        // Route::get('informes', 'App\Http\Controllers\DynamicPDFController@index')->name('informes.index');
-        // Route::get('informes/PDF', 'App\Http\Controllers\DynamicPDFController@pdf')->name('informes.PDF');
-
     });
    Route::group(['middleware' => 'role:jefemeseroR', 'prefix' => 'jefemeseroR', 'as' => 'jefemeseroR.'], function() {
         Route::resource('meseros', MeseroController::class);
         Route::resource('platillos', PlatilloController::class);
+
+        Route::get('files/download/{file}', [FileController::class, 'download'])->name('files.download');
+        Route::resource('files', FileController::class)->except(['edit', 'update', 'show']);
+
    });
 });
 
@@ -75,18 +77,10 @@ Route::resource('informes', DynamicPDFController::class);
 //Login with Google Routes
 use App\Http\Controllers\LoginWithGoogleController;
 
-Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
-Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
+Route::get('/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
+Route::get('/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
 
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Mail;
 //Send Email
-Route::get('/send-email', [MailController::class, 'sendEmail']);
-
-use App\Mail\TestMail;
-Route::get('/email', function(){
-    $correo = new TestMail;
-    Mail::to('adrian.estevez7475@alumnos.udg.mx')->send($correo);
-
-    return "Mensaje Enviado";
-});
+Route::get('/send-email/{email}', [MailController::class, 'sendEmail'])->name('send.email');
