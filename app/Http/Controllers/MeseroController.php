@@ -16,10 +16,6 @@ class MeseroController extends Controller
      */
     public function index()
     {
-        // if(Gate::denies('manager-Mesero')){
-        //     abort(403);
-        // }
-
         $meseros = Mesero::get();
         return view('Meseros.meseros', compact('meseros'));
     }
@@ -43,15 +39,18 @@ class MeseroController extends Controller
     public function store(Request $request)
     {
         
-        //Validando el correo
+        //Validando los campos
         $request->validate([
-            "email" => ['required','email:rfc'],
+            'nombre' => ['required','string', 'min:3', 'max:255'],
+            'apellido' => ['required','string','min:3', 'max:255'],
+            'email' => ['required','email:rfc'],
+            'telefono' => ['required','integer','min:10','max:10'],
         ]);
 
         $pass = Hash::make($request['password']);
         $request['password'] = $pass;
         Mesero::create($request->all());
-        return redirect()->route('jefemeseroR.meseros.index')->with('info', 'mesero creado exitosamente');
+        return redirect()->route('jefemeseroR.meseros.index')->with('info', 'Mesero creado exitosamente');
     }
 
     /**
@@ -98,6 +97,6 @@ class MeseroController extends Controller
     public function destroy(Mesero $mesero)
     {
         $mesero->delete();
-        return redirect()->route('jefemeseroR.meseros.index');
+        return redirect()->route('jefemeseroR.meseros.index')->with('danger','Mesero eliminado correctamente');
     }
 }

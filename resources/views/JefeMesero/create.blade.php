@@ -4,6 +4,18 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
+
+          @if($errors->any())
+          <div class="alert alert-danger">
+            <h5>Verifique los campos del formulario</h5>
+            <ul>
+              @foreach ($errors as $error)
+                <li>{{ $error }}</li> 
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
         @if(isset($jefemesero))
           <form action="{{ route('gerenteR.jefemeseros.update',$jefemesero) }}" method="POST">
           @method('PATCH')
@@ -16,9 +28,15 @@
           <div class="card-body">
                @csrf
               <label for="name">Nombre de empleado</label>
-              <input type="text" class="form-control" name="name" required value="{{ $jefemesero->name ?? '' }}">
+              <input type="text" class="form-control" name="name" required value="{{ old('name') ?? $jefemesero->name ?? '' }}">
+              @error('name')
+                <p class="text-xs text-red">{{ $message }}</p>
+              @enderror
               <label for="email" >Correo</label>
-              <input type="email" class="form-control" name="email" required value="{{ $jefemesero->email ?? '' }}">
+              <input type="email" class="form-control" name="email" required value="{{ old('email') ?? $jefemesero->email ?? '' }}">
+              @error('email')
+                <p class="text-xs text-red">{{ $message }}</p>
+              @enderror
               <?php
               $IsNew = true;
               if(isset($jefemesero) ) $IsNew = false;

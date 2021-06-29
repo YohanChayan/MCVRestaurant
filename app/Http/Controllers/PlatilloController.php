@@ -36,6 +36,11 @@ class PlatilloController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => ['required','string', 'min:3', 'max:255'],
+            'ingredientes' => 'required|string|min:5|max:300',
+            'precio' => 'required|integer|min:1'
+        ]);
         Platillo::create($request->all());
         return redirect()->route('jefemeseroR.platillos.index')->with('info', 'Platillo creado exitosamente');
     }
@@ -84,6 +89,6 @@ class PlatilloController extends Controller
     public function destroy(Platillo $platillo)
     {
         $platillo->delete();
-        return redirect()->route('jefemeseroR.platillos.index');
+        return redirect()->route('jefemeseroR.platillos.index')->with('danger','Platillo eliminado correctamente');
     }
 }

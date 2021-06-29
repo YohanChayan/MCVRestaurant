@@ -13,8 +13,11 @@ MCV Restaurant es una aplicación que permite a los clientes de un restaurant or
 4. Crear archivo de variables de entorno: `cp .env.example .env`
 5. Crear llave: `php artisan key:generate`
 6. Configurar nombre de base de datos en .env
-7. Ejecutar las migraciones: `php artisan migrate`
-8. Linkear storage con el public, para mostrar imágenes: `php artisan storage:link`
+7. Ejecutar las migraciones: `php artisan migrate --seed`
+8. Linkear storage con el public, para mostrar imágenes: `php artisan storage:link`  
+
+9. Al ejecutar `php artisan migrate --seed` genera los datos de pruebas, en estos se genera un usuario inicial de tipo gerente que servira para iniciar sesion y poder hacer uso de sus funcionalidades, una de ellas consiste en agregar usuarios de tipo Jefe de meseros que a su vez tambien podran iniciar sesion y asi acceder sus funcionalidades desarrolladas también
+
 
 ## Extra
 
@@ -24,6 +27,12 @@ Algunos comandos que pueden ser de utilidad para cargar las vistas por completo:
 - npm install.
 - npm run dev.
 
+Si quiere iniciar sesión con Google tiene que:
+- tener la aplicación con el siguiente nombre `http://mcvrestaurant.org`
+
+
+
+
 ---
 
 ## Desarrollo
@@ -32,6 +41,18 @@ Algunos comandos que pueden ser de utilidad para cargar las vistas por completo:
 ## Para acceder al envío de Emails
 - Tener una cuenta en https://mailtrap.io/
 - Configurar la sección de email en el .env con sus credenciales de mailtrap
+- Usamos el host stmp.mailtrap.io
+- Usamos el puerto 2525
+- Usamos la encriptación tls
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=8704a5db9705d9
+MAIL_PASSWORD=c7bfc09f9c1028
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=admin@mcvrestaurant.com
+MAIL_FROM_NAME="${APP_NAME}"
 
 ## Autores
 - Adrián Estévez

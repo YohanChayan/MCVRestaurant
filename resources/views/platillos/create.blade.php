@@ -4,6 +4,19 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
+
+          @if($errors->any())
+            <div class="alert alert-danger">
+              <h4>Verifique los campos del formulario</h4>
+              <ul>
+                @foreach ($errors as $error)
+                  <li>{{ $error }}</li> 
+                @endforeach
+              </ul>
+            </div>
+          @endif
+
+
         @if(isset($platillo))
           <form action="{{ route('jefemeseroR.platillos.update',$platillo) }}" method="POST">
           @method('PATCH')
@@ -16,11 +29,20 @@
           <div class="card-body">
                @csrf
               <label for="nombre">Nombre del Platillo</label>
-              <input type="text" class="form-control" name="nombre" required value="{{ $platillo->nombre ?? '' }}">
+              <input type="text" class="form-control" name="nombre" required value="{{ old('nombre') ?? $platillo->nombre ?? '' }}">
+              @error('nombre')
+                <p class="text-xs text-red">{{ $message }}</p>
+              @enderror
               <label for="ingredientes">Ingredientes</label>
-              <input type="text" class="form-control" name="ingredientes" required value="{{ $platillo->ingredientes ?? '' }}">
+              <input type="text" class="form-control" name="ingredientes" required value="{{ old('ingredientes') ?? $platillo->ingredientes ?? '' }}">
+              @error('ingredientes')
+                <p class="text-xs text-red">{{ $message }}</p>
+              @enderror
               <label for="precio">Precio</label>
-              <input step="0.01" min="1" type="number" required class="form-control" name="precio" value="{{ $platillo->precio ?? '' }}"><br>
+              <input step="0.01" min="1" type="number" required class="form-control" name="precio" value="{{ old('precio') ?? $platillo->precio ?? '' }}"><br>
+              @error('precio')
+                <p class="text-xs text-red">{{ $message }}</p>
+              @enderror
               <label for="disponibilidad">Disponibilidad</label>
               <!--Radio  Disponibilidad-->
               <?php

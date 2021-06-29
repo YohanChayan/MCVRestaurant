@@ -38,6 +38,12 @@ class JefeMeseroController extends Controller
      */
     public function store(Request $request)
     {
+        //Validando los campos
+        $request->validate([
+            'name' => ['required','string', 'min:3', 'max:255'],
+            'email' => ['required','email:rfc'],
+        ]);
+
         $pass = Hash::make($request['password']);
         $request['password'] = $pass;
         Jefe::create($request->all());
@@ -88,6 +94,6 @@ class JefeMeseroController extends Controller
     public function destroy(Jefe $jefemesero)
     {
         $jefemesero->delete();
-        return redirect()->route('gerenteR.jefemeseros.index');
+        return redirect()->route('gerenteR.jefemeseros.index')->with('danger','Jefe de Mesero eliminado correctamente');
     }
 }
