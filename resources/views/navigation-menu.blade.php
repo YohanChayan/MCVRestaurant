@@ -55,10 +55,6 @@
                     </x-jet-nav-link>
                 </div>
                 @endcan
-
-                
-                
-
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -185,6 +181,37 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
         </div>
+        @can('manager-JefeMesero')
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-jet-responsive-nav-link href="{{ route('jefemeseroR.platillos.index') }}" :active="request()->routeIs('jefemeseroR.platillos.index')">
+                {{ __('Platillos') }}
+            </x-jet-responsive-nav-link>
+        </div>
+        @endcan
+        @can('manager-JefeMesero')
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-jet-responsive-nav-link href="{{ route('jefemeseroR.meseros.index') }}" :active="request()->routeIs('jefemeseroR.meseros.index')">
+                {{ __('Meseros') }}
+            </x-jet-responsive-nav-link>
+        </div>
+        @endcan
+
+
+        @can('manager-Gerente')
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-jet-nav-link href="{{ route('gerenteR.jefemeseros.index') }}" :active="request()->routeIs('gerenteR.jefemeseros.index')">
+                {{ __('Jefe de meseros') }}
+            </x-jet-responsive-nav-link>
+        </div>
+        @endcan
+
+        @can('manager-Gerente')
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-jet-responsive-nav-link href="{{ route('gerenteR.informes.index') }}" :active="request()->routeIs('gerenteR.informes.index')">
+                {{ __('Informes') }}
+            </x-jet-responsive-nav-link>
+        </div>
+        @endcan
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
