@@ -12,7 +12,7 @@
     <link href="{{{ asset('img/apple-touch-icon.png')}}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <style> .user_icon{height: 50px; width: 50px;} </style>
 
@@ -26,47 +26,9 @@
    
 @can('manager-Gerente')
 
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            
-                
-                <section id="why-us" class="why-us">
-                    <div class="container">
-                        <div class="section-title">
-                            <h2>Informacion general</h2>
-                        </div>
-                    <div class="row">
-
-                        <div class="col-lg-4">
-                            <div class="box">
-                                <span>Estadistica de Jefes de meseros</span>
-                                <h3>Porcentajes:</h3>
-                                <ul>
-                                    <li><h4> Jefe de meseros 1:  <span>80%</span> </h4></li>
-                                    <li><h4> Jefe de meseros 2: <span>50%</span> </h4></li>
-                                    <li><h4> Jefe de meseros 3: <span>75%</span> </h4></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 mt-4 mt-lg-0">
-                            <div class="box">
-                                <span>Estadistica de calidad por parte de los Jefes de meseros</span>
-                                <h4>Porcentajes General: 81%</h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-4 mt-lg-0">
-                            <div class="box">
-                                <span>Sucursal: Guadalajara</span>
-                                <h4>Direccion: </h4>
-                                <h5>Blvd. Gral. Marcelino García Barragán 1421, Olímpica, 44430 Guadalajara, Jal.</h5>
-                                <p>Centro Universitario de Ciencias Exactas e Ingenierías, dirección</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </section><!-- End Why Us Section -->
+    <h2 class="text-center">Bienvenido al Sistema MCV Gerente {{ Auth::user()->name }}</h2>
+    <img src="{{ url('img/welcome-gerente.png') }}" class="mx-auto d-block"/>
+                    
 @endcan
 
 @can('manager-JefeMesero')
