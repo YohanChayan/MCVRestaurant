@@ -6,104 +6,72 @@
   </x-slot>
 
   @extends('layouts.informes.informes-layout')
-
-  <div class="py-12">
-      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="flex flex-col">
-          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-              <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                 <!--Se Muestran los mensajes de exito al eliminar o editar-->
-              @if(session('info'))
-              <div class="alert alert-success" role="alert">
-                  {{session('info')}}
-              </div>
-              @endif
-              @if(session('danger'))
-              <div class="alert alert-danger" role="alert">
-                  {{session('danger')}}
-              </div>
-              @endif
-              <div class="card-header">
-                Lista de jefe de meseros
-                <a href="{{{ route('gerenteR.jefemeseros.create') }}}" class=" text-center btn btn-danger text-white  btn-sm float-right">Imprimir informe</a>
-              </div>
-                
-                <table class="min-w-full divide-y divide-gray-200">
-                  <thead class="bg-gray-50">
-                    <tr>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        ID
-                      </th>
-
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Nombre
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Email
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Editar
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Borrar
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-
-
-                  @foreach($jefemeseros as $jefemesero)
-                    <tr>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900">
-                              {{$jefemesero->id}}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        {{$jefemesero->name}}
-                        </span>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {{$jefemesero->email}}
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          <!--Iconos de Editar y eliminar-->
-                          <a href="{{ route('gerenteR.jefemeseros.edit',$jefemesero) }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                            </svg>
-                          </a>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <a href="javascript: document.getElementById('delete-{{$jefemesero->id}}').submit()" class="">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                          </svg>
-                        </a>
-                        
-                        <form id="delete-{{$jefemesero->id}}" action="{{ route('gerenteR.jefemeseros.destroy', $jefemesero) }}" method="POST">                      
-                          @csrf
-                          @method('DELETE')
-                        </form>
-                      </td>
-                    </tr>
-                    <!-- More people... -->
-                    @endforeach
-                  </tbody>
-                </table>
-              </div>
+  <br><div class="container"><br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            Lista de jefe de meseros
+            <a href="{{{ route ('gerenteR.jefemeseros.create')}}}" class=" text-center btn btn-warning text-white  btn-sm float-right">Nuevo jefe de mesero</a>
+          </div>
+          <div class="card-body">
+            <!--Se Muestran los mensajes de exito al eliminar o editar-->
+            @if(session('info'))
+            <div class="alert alert-success" role="alert">
+                {{session('info')}}
             </div>
+            @endif
+            @if(session('danger'))
+            <div class="alert alert-danger" role="alert">
+                {{session('danger')}}
+            </div>
+            @endif
+            <table class="table table-hover table-sm">
+                <thead>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Editar</th>
+                  <th>Borrar</th>
+                </thead>
+                <tbody>
+                @foreach ($jefemeseros as $jefemesero)
+                  <tr>
+                    <td>{{ $jefemesero->id }}</td>
+                    <td>{{ $jefemesero->name }}</td>
+                    <td>{{ $jefemesero->email }}</td>
+                   
+                    <td>
+                      <!--Iconos de Editar y eliminar-->
+                      <a href="{{ route('gerenteR.jefemeseros.edit',$jefemesero) }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                        </svg>
+                      </a>
+                    </td>
+                    <td>
+                      
+                      <a href="javascript: document.getElementById('delete-{{$jefemesero->id}}').submit()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>
+                      </a>
+                      
+                      <form id="delete-{{$jefemesero->id}}" action="{{ route('gerenteR.jefemeseros.destroy', $jefemesero) }}" method="POST">                      
+                        @csrf
+                        @method('DELETE')
+                      </form>
+                      
+                    </td>
+                    
+                  </tr>
+                  @endforeach
+                </tbody>
+            </table>
           </div>
         </div>
-
       </div>
-  </div>
-
+    </div>
+  </div>   
 </x-app-layout>
