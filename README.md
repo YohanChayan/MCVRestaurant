@@ -45,15 +45,6 @@ Si quiere iniciar sesión con Google tiene que:
 - Usamos el puerto 2525
 - Usamos la encriptación tls
 
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=8704a5db9705d9
-MAIL_PASSWORD=c7bfc09f9c1028
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=admin@mcvrestaurant.com
-MAIL_FROM_NAME="${APP_NAME}"
-
 ## Autores
 - Adrián Estévez
 - Yohan Chayan   
