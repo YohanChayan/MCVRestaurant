@@ -32,47 +32,10 @@
 @endcan
 
 @can('manager-JefeMesero')
-            <!-- <section id="testimonials" class="testimonials"> -->
-                <div class="container">
-                    <div class="owl-carousel testimonials-carousel">
-                        <div class="testimonial-item">
-                            <img src="{{{ asset('img/user_icon.png')}}}" class="user_icon" alt="">
-                            <h4>Mesero: Saul Goodman</h4>
-                            <p>Se encuentra atendiendo a las mesas:</p>
-                            <ul>
-                                <li> ID: 1</li>
-                                <li> ID: 3</li>
-                                <li> ID: 9</li>
-                            </ul>
-                        </div>
 
-                        <div class="testimonial-item">
-                            <img src="{{{ asset('img/user_icon.png')}}}" class="user_icon" alt="">
-                            <h4>Mesero: Sara Wilsson</h4>
-                            <p>Se encuentra atendiendo a las mesas:</p>
-                            <ul>
-                                <li> ID: 2</li>
-                                <li> ID: 13</li>
-                                <li> ID: 4</li>
-                            </ul>
-                            
-                        </div>
-
-                        <div class="testimonial-item">
-                            <img src="{{{ asset('img/user_icon.png')}}}" class="user_icon" alt="">
-                            <h4>Mesero: Jena Karlis</h4>
-                            <p>Se encuentra atendiendo a las mesas: </p>
-                            <ul>
-                                <li> ID: 10</li>
-                                <li> ID: 8</li>
-                                <li> ID: 6</li>
-                            </ul>
-                           
-                        </div>
-                    </div>
-                </div>
-            <!-- </section> -->
-      
+    <h2 class="text-center">Bienvenido al Sistema MCV Jefe de Meseros {{ Auth::user()->name }}</h2>
+    <img src="{{ url('img/welcome-jefemesero.png') }}" class="mx-auto d-block"/>            
+    
 @endcan
 
 <!-- @can('manager-Mesero')

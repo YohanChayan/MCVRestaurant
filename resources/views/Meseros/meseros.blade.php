@@ -1,5 +1,11 @@
-@extends('layouts.meseros.meseros-layout')
-@section('contenido')
+<x-app-layout>
+  <x-slot name="header">
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+          {{ __('Meseros') }}
+      </h2>
+  </x-slot>
+
+  @extends('layouts.informes.informes-layout')
   <br><div class="container"><br>
     <div class="row">
       <div class="col-md-12">
@@ -28,7 +34,8 @@
                   <th>Correo</th>
                   <th>Telefono</th>
                   <th>Sueldo</th>
-                  <th>Acciones</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
                   <th>Mandar email</th>
                 </thead>
                 <tbody>
@@ -48,7 +55,9 @@
                           <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                         </svg> &nbsp &nbsp
                       </a>
-
+                    </td>
+                    <td>
+                      
                       <a href="javascript: document.getElementById('delete-{{$mesero->id}}').submit()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -60,7 +69,6 @@
                         @csrf
                         @method('DELETE')
                       </form>
-
                     </td>
                     <td>
                       <a href="{{{route('send.email',$mesero->email)}}}">
@@ -78,5 +86,6 @@
         </div>
       </div>
     </div>
-  </div>    
-@endsection
+  </div>
+  
+</x-app-layout>
