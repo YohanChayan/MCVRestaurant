@@ -69,6 +69,9 @@
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {{$jefemesero->email}}
                       </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          
+                      </td>
                     </tr>
                     <!-- More people... -->
                     @endforeach
