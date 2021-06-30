@@ -16,7 +16,7 @@ MCV Restaurant es una aplicación que permite a los clientes de un restaurant or
 7. Ejecutar las migraciones: `php artisan migrate --seed`
 8. Linkear storage con el public, para mostrar imágenes: `php artisan storage:link`  
 
-9. Al ejecutar `php artisan migrate --seed` genera los datos de pruebas, en estos se genera un usuario inicial de tipo gerente que servira para iniciar sesion y poder hacer uso de sus funcionalidades, una de ellas consiste en agregar usuarios de tipo Jefe de meseros que a su vez tambien podran iniciar sesion y asi acceder sus funcionalidades desarrolladas también
+9. Al ejecutar `php artisan migrate --seed` genera los datos de pruebas, en estos se genera un usuario inicial de tipo gerente que servira para iniciar sesion y poder hacer uso de sus funcionalidades, una de ellas consiste en agregar usuarios de tipo Jefe de meseros que a su vez tambien podran iniciar sesion y asi acceder sus funcionalidades desarrolladas también, los datos para iniciar sesion del gerente: correo: gerente@gmail.com, contraseña: MasterGerente.
 
 
 ## Extra
