@@ -29,17 +29,17 @@
           <div class="card-body">
                @csrf
               <label for="nombre">Nombre del Platillo</label>
-              <input type="text" class="form-control" name="nombre" required value="{{ old('nombre') ?? $platillo->nombre ?? '' }}">
+              <input type="text" class="form-control" name="nombre" maxlength="50" required value="{{ old('nombre') ?? $platillo->nombre ?? '' }}">
               @error('nombre')
                 <p class="text-xs text-red">{{ $message }}</p>
               @enderror
               <label for="ingredientes">Ingredientes</label>
-              <input type="text" class="form-control" name="ingredientes" required value="{{ old('ingredientes') ?? $platillo->ingredientes ?? '' }}">
+              <input type="text" class="form-control" name="ingredientes" maxlength="100" required value="{{ old('ingredientes') ?? $platillo->ingredientes ?? '' }}">
               @error('ingredientes')
                 <p class="text-xs text-red">{{ $message }}</p>
               @enderror
               <label for="precio">Precio</label>
-              <input step="0.01" min="1" type="number" required class="form-control" name="precio" value="{{ old('precio') ?? $platillo->precio ?? '' }}"><br>
+              <input step="0.01" min="1" max=10000 type="number" required class="form-control" name="precio" value="{{ old('precio') ?? $platillo->precio ?? '' }}"><br>
               @error('precio')
                 <p class="text-xs text-red">{{ $message }}</p>
               @enderror

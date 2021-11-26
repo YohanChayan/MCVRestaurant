@@ -28,13 +28,13 @@
           <div class="card-body">
                @csrf
               <label for="nombre">Nombre</label>
-              <input type="text" class="form-control" name="nombre" value="{{ old('nombre') ?? $mesero->nombre ?? '' }}">
+              <input type="text" maxlength="50" class="form-control" name="nombre" value="{{ old('nombre') ?? $mesero->nombre ?? '' }}">
               @error('nombre')
                 <p class="text-xs text-red">{{ $message }}</p>
               @enderror
 
               <label for="apellido">Apellido</label>
-              <input type="text" class="form-control" name="apellido" value="{{ old('apellido') ?? $mesero->apellido ?? '' }}">
+              <input type="text" maxlength="50" class="form-control" name="apellido" value="{{ old('apellido') ?? $mesero->apellido ?? '' }}">
               @error('apellido')
                 <p class="text-xs text-red">{{ $message }}</p>
               @enderror
@@ -52,7 +52,7 @@
               @enderror
 
               <label for="sueldo">Sueldo</label>
-              <input type="number" class="form-control" name="sueldo" max="9999999999" value="{{ old('sueldo') ?? $mesero->sueldo ?? '' }}">
+              <input type="number" class="form-control" min="10" name="sueldo" max="10000" value="{{ old('sueldo') ?? $mesero->sueldo ?? '' }}">
               @error('sueldo')
                 <p class="text-xs text-red">{{ $message }}</p>
               @enderror

@@ -15,7 +15,6 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-        
             $table->string('hashed_name')->nullable();
             $table->string('name_platillo');
             $table->string('original_name');

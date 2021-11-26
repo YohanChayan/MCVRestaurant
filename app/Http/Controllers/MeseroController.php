@@ -44,7 +44,7 @@ class MeseroController extends Controller
             'nombre' => ['required','string', 'min:3', 'max:255'],
             'apellido' => ['required','string','min:3', 'max:255'],
             'email' => ['required','email:rfc'],
-            'telefono' => ['required','integer','min:10','max:10'],
+            'telefono' => ['required','string','min:10','max:10'],
         ]);
 
         $pass = Hash::make($request['password']);

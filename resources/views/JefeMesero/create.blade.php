@@ -28,7 +28,7 @@
           <div class="card-body">
                @csrf
               <label for="name">Nombre de empleado</label>
-              <input type="text" class="form-control" name="name" required value="{{ old('name') ?? $jefemesero->name ?? '' }}">
+              <input type="text" maxlength="40" class="form-control" name="name" required value="{{ old('name') ?? $jefemesero->name ?? '' }}">
               @error('name')
                 <p class="text-xs text-red">{{ $message }}</p>
               @enderror
@@ -42,7 +42,7 @@
               if(isset($jefemesero) ) $IsNew = false;
               ?>
               <label for="password" <?php echo ($IsNew) ? 'required':'hidden '?> >contraseña predeterminada</label>
-              <input type="password" class="form-control" name="password"  value="{{ $nombre->password ?? '' }}" <?php echo ($IsNew) ? 'required':'hidden'?> ><br>
+              <input type="password" minlength="5" class="form-control" name="password"  value="{{ $nombre->password ?? '' }}" <?php echo ($IsNew) ? 'required':'hidden'?> ><br>
               <!-- <label for="role">Rol</label> -->
               <input type="text" class="form-control" name="role" value="1" hidden><br>
               <!--Radio  Disponibilidad-->

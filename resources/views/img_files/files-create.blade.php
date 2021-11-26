@@ -19,7 +19,7 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="name_platillo">
                         Ingrese nombre platillo
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name_platillo" type="text" placeholder="Nombre de platillo" name="name_platillo">
+                    <input minlength="50" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name_platillo" type="text" placeholder="Nombre de platillo" name="name_platillo">
                     </div>           
 
                         <label
