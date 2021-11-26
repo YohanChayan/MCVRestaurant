@@ -48,7 +48,7 @@ Si quiere iniciar sesión con Google tiene que:
 ## Autores
 - Karla Rios
 - Isaias Suarez
-- Alan Gonzales
+- Alan Gonzalez
 - Mariam Delgado
 - Yohan Chayan   
 - Rodrigo Navarrete
