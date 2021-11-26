@@ -46,7 +46,11 @@ Si quiere iniciar sesión con Google tiene que:
 - Usamos la encriptación tls
 
 ## Autores
-- Adrián Estévez
+- Karla Rios
+- Isaias Suarez
+- Alan Gonzales
+- Mariam Delgado
 - Yohan Chayan   
+- Rodrigo Navarrete
 
 *Derechos reservados.*
